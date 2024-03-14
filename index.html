@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List</title>
+</head>
+
+<body>
+    <div class="content">
+
+        <h1>
+            Task List
+        </h1>
+        <div class="button">
+
+            <input type="text" id="taskInput" placeholder="Write a task...">
+            <button onclick="addTask()" id="addNew">Add a new task</button>
+        </div>
+        <ul id="taskList"></ul>
+
+    </div>
+
+    <footer class="footer">
+        <div class="footer-sci">
+            <a href="https://www.linkedin.com/in/alibiohenrique"><i class='bx bxl-linkedin-square'></i></a>
+            <a href="https://github.com/alibiohenrique"><i class='bx bxl-github'></i></a>
+            <a href="https://www.youtube.com/@AlibioTv"><i class='bx bxl-youtube' src=""></i></a>
+        </div>
+        <div class="footer-text">
+            <p>Desenvolvido por <a href="https://www.linkedin.com/in/alibiohenrique/?locale=pt_BR"><span>Henrique
+                        Alibio</span></a> &COPY | 2024</p>
+        </div>
+    </footer>
+
+    <script>
+        function addTask() {
+            var taskInput = document.getElementById("taskInput");
+            var taskText = taskInput.value.trim();
+
+            if (taskText !== "") {
+                var taskInput = document.getElementById("taskList");
+                var li = document.createElement("li");
+                li.className = "taskItem";
+                li.innerHTML = taskText +'<button onClick="removeTask(this)">X</button>' ;
+                taskList.appendChild(li);
+                taskInput.value = "";
+            } else {
+                alert("Please, task cannot be empty")
+            }
+        }
+        function removeTask(button) {
+            var li = button.parentNode;
+            var ul = li.parentNode;
+            ul.removeChild(li);
+        }
+
+    
+    </script>
+
+</body>
+
+</html>
